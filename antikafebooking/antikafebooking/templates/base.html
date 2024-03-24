@@ -1,0 +1,14 @@
+<!--тут будет основа страниц, tittle и шапка?-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link type="text/css" href="{% static 'booking/css/main.css' %}" rel="stylesheet" />
+</head>
+<body>
+{% block content %}{% endblock %}
+</body>
+</html>

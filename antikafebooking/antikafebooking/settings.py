@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7vlg_j$^a9p*v%eukw17!4-5s%$2e-ye8$vb$--l+!tnvy1a-h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -55,7 +55,9 @@ ROOT_URLCONF = 'antikafebooking.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'antikafebooking/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
