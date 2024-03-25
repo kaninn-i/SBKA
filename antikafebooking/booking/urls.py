@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index),
-    path('dates/<int:date_id>/', views.date),  # id поменять на саму дату - отложено до бд
+    path('', views.index, name='index'),
+    path('dates/<slug:date_slug>/', views.date, name='dates'),  # id поменять на саму дату - отложено до бд
 ]
