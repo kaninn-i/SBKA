@@ -15,10 +15,10 @@ def index(request):
 
 
 def date(request, date_slug):
-    db_entry = Booking.objects.filter(date=date_slug)
+    db_entry = Booking.objects.filter(date=date_slug).order_by('start_time')
     data = {
         'db_entry': db_entry,
-        'date': date_slug,
+        'date': db_entry[0].date,
         'first_floor_rooms': first_floor_rooms,
         'second_floor_rooms': second_floor_rooms,
     }

@@ -1,6 +1,11 @@
-body {
+html{
     width: 1920px;
+}
+
+body {
+    /*width: 1920px;*/
     font-family: Arial,serif;
+    font-size: 18px;
 }
 
 .floor1{

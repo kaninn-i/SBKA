@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Брони на {{ date }}{% endblock %}
+{% block title %}Брони на {{ date|date:"d.m.Y" }}{% endblock %}
 
 {% block content %}
-<!--ЭТО ТЕСТОВЫЙ HTML КОТОРЫЙ НЕ ГОТОВ И БУДЕТ ДОРАБОТАН-->
-<h1>Брони на {{ date|date:"SHORT_DATE_FORMAT" }}</h1>
+
+<h1>Брони на {{ date|date:"d.m.Y" }}</h1>
 
 
 <div class="floor1">
@@ -19,7 +19,7 @@
                         <li>Имя - {{ obj.name }}</li>
                         <li>Телефон: {{ obj.phone_number }}</li>
                         <li>Кол-во посетителей: {{ obj.how_many_visitors }}</li>
-                        <li>Время бронирования: {{ obj.start_time }} - {{ obj.end_time}}</li>
+                        <li>Время бронирования: {{ obj.start_time|time:"H:i" }} - {{ obj.end_time|time:"H:i" }}</li>
                     </ul>
                     {% endif %}
                 {% endfor %}
@@ -40,7 +40,8 @@
                         <li>Имя - {{ obj.name }}</li>
                         <li>Телефон: {{ obj.phone_number }}</li>
                         <li>Кол-во посетителей: {{ obj.how_many_visitors }}</li>
-                        <li>Время бронирования: {{ obj.start_time }} - {{ obj.end_time}}</li>
+                        <li>Время бронирования: {{ obj.start_time|time:"H:i" }} - {{ obj.end_time|time:"H:i" }}</li>
+                        <li>{{ obj.tags }}</li>
                     </ul>
                     {% endif %}
                 {% endfor %}
