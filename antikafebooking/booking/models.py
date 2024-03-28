@@ -12,7 +12,7 @@ class Booking(models.Model):
     how_many_visitors = models.IntegerField()
     start_time = models.TimeField()
     end_time = models.TimeField()
-    tags = models.OneToOneField('Tags', on_delete=models.CASCADE, related_name='booking', null=True, blank=True)
+    tags = models.OneToOneField('Tags', on_delete=models.SET_NULL, related_name='book', null=True, blank=True)
 
 
 class Tags(models.Model):

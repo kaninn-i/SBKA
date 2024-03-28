@@ -3,23 +3,22 @@ html{
 }
 
 body {
-    /*width: 1920px;*/
+    width: 1200px;
     font-family: Arial,serif;
     font-size: 18px;
 }
 
-.floor1{
-    width: 1200px;
-    border: 2px solid black;
-    padding: 20px;
-    margin-bottom: 40px;
-}
+/*.floor1{*/
+/*    border: 2px solid black;*/
+/*    padding: 20px;*/
+/*    margin-bottom: 40px;*/
+/*}*/
 
-.floor2{
-    width: 1200px;
-    border: 2px solid black;
-    padding: 20px;
-}
+/*.floor2{*/
+/*    width: 1200px;*/
+/*    border: 2px solid black;*/
+/*    padding: 20px;*/
+/*}*/
 
 .rooms {
     display: flex;
@@ -29,11 +28,11 @@ body {
 
 .room {
     width: 250px;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     margin-bottom: 20px;
 }
 
-.room p {
-    padding-left: 30px;
-    font-weight: bold;
-}
+/*.room p {*/
+/*    padding-left: 30px;*/
+/*    font-weight: bold;*/
+/*}*/
