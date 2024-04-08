@@ -15,7 +15,7 @@ def index(request):
 
 
 def date(request, date_slug):
-    db_entry = Booking.objects.filter(date=date_slug).order_by('start_time')
+    db_entry = Booking.objects.filter(date=date_slug).order_by('start_time').select_related('tags')
     data = {
         'db_entry': db_entry,
         'date': db_entry[0].date,

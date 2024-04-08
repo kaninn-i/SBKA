@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('dates/<slug:date_slug>/', views.date, name='dates'),  # id поменять на саму дату - отложено до бд
+    path('dates/<slug:date_slug>/', views.date, name='dates'),
 ]
