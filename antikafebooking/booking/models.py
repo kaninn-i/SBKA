@@ -5,14 +5,32 @@ from wheel.vendored.packaging.tags import Tag
 # Create your models here.
 
 class Booking(models.Model):
+    ROOMS_CHOICES = [
+        ('Кабинет', 'Кабинет'),
+        ('Каминная', 'Каминная'),
+        ('Большой зал', 'Большой зал'),
+        ('Полосатая', 'Полосатая'),
+        ('Лето', 'Лето'),
+        ('Осень', 'Осень'),
+        ('Зима', 'Зима'),
+        ('Весна', 'Весна'),
+        ('Бордовая', 'Бордовая'),
+        ('Мансардная', 'Мансардная'),
+        ('Бирюзовая', 'Бирюзовая')
+        # добавить сюда лист ожидания в виде комнаты?
+    ]
+
     date = models.DateField(db_index=True, verbose_name='Дата')
-    room = models.CharField(max_length=50, verbose_name='Комната')
+    room = models.CharField(max_length=11, choices=ROOMS_CHOICES, verbose_name='Комната')
     name = models.CharField(max_length=50, verbose_name="Имя")
     phone_number = models.CharField(max_length=15)
     how_many_visitors = models.IntegerField()
     start_time = models.TimeField(verbose_name='Начало бронирования')
     end_time = models.TimeField(verbose_name='Конец бронирования')
-    tags = models.OneToOneField('Tags', on_delete=models.SET_NULL, related_name='book', null=True, blank=True)
+    tags = models.ManyToManyField('Tags', blank=True, verbose_name='Теги', related_name='tags')
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = 'Запись о бронировании'
