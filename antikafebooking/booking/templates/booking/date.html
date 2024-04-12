@@ -15,27 +15,20 @@
                 <h3>{{ room }}</h3>
                 {% for obj in db_entry %}
                     {% if obj.room == room %}
-                    <ul>
-                        <li>Имя - {{ obj.name }}</li>
-                        <li>Телефон: {{ obj.phone_number }}</li>
-                        <li>Кол-во посетителей: {{ obj.how_many_visitors }}</li>
-                        <li>Время бронирования: {{ obj.start_time|time:"H:i" }} - {{ obj.end_time|time:"H:i" }}</li>
-                        <li>теги:
-                            {% if obj.tags.min_booking %}минбронь{% endif %}
-                            {% if obj.tags.no_min_booking %}без минброни{% endif %}
-                            {% if obj.tags.projector %}проектор{% endif %}
-                            {% if obj.tags.payment_by_organizer %}$орг{% endif %}
-                            {% if obj.tags.mastermind %}мастермайнд{% endif %}
-                            {% if obj.tags.rhetoric %}риторика{% endif %}
-                            {% if obj.tags.poufs %}пуфы{% endif %}
-                            {% if obj.tags.flipchart %}флипчарт{% endif %}
-                            {% if obj.tags.laptop %}ноутбук{% endif %}
-                            {% if obj.tags.coaching_rate %}тренерский тариф{% endif %}
-                            {% if obj.tags.tea_rate %}чайный тариф{% endif %}
-                            {% if obj.tags.coffee_rate %}кофейный тариф{% endif %}
-                            {% if obj.tags.birthday %}др{% endif %}
-                        </li>
-                    </ul>
+                        <p>Имя - {{ obj.name }}</p>
+                        <p>Телефон: {{ obj.phone_number }}</p>
+                        <p>Кол-во посетителей: {{ obj.how_many_visitors }}</p>
+                        <p>Время бронирования: {{ obj.start_time|time:"H:i" }} - {{ obj.end_time|time:"H:i" }}</p>
+                        {% with obj.tags.all as tags %}
+                            {% if tags %}
+                            <p>
+                                Теги:
+                                {% for t in tags %}
+                                {{ t.tag }}
+                                {% endfor %}
+                            </p>
+                            {% endif %}
+                        {% endwith %}
                     {% endif %}
                 {% endfor %}
             </div>

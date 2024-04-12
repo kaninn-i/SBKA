@@ -8,4 +8,5 @@ class BookingAdmin(admin.ModelAdmin):
     ordering = ['-date', 'start_time', 'room']
     list_per_page = 25
     list_filter = ['date', 'room']
+    filter_horizontal = ['tags']
 # admin.site.register(Booking, BookingAdmin)
