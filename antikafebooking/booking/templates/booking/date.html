@@ -14,7 +14,7 @@
             <div class="room">
                 <h3>{{ room }}</h3>
                 {% for obj in db_entry %}
-                    {% if obj.room == room %}
+                    {% if obj.room.room_name == room %}
                         <p>{{ obj.start_time|time:"H:i" }} - {{ obj.end_time|time:"H:i" }}</p>
                         <p>{{ obj.name }}, {{ obj.phone_number }}</p>
                         <p>Посетителей: <b>{{ obj.how_many_visitors }}</b></p>

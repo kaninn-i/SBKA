@@ -5,26 +5,11 @@ from wheel.vendored.packaging.tags import Tag
 # Create your models here.
 
 class Booking(models.Model):
-    ROOMS_CHOICES = [
-        ('Кабинет', 'Кабинет'),
-        ('Каминная', 'Каминная'),
-        ('Большой зал', 'Большой зал'),
-        ('Полосатая', 'Полосатая'),
-        ('Лето', 'Лето'),
-        ('Осень', 'Осень'),
-        ('Зима', 'Зима'),
-        ('Весна', 'Весна'),
-        ('Бордовая', 'Бордовая'),
-        ('Мансардная', 'Мансардная'),
-        ('Бирюзовая', 'Бирюзовая')
-        # добавить сюда лист ожидания в виде комнаты?
-    ]
-
     date = models.DateField(db_index=True, verbose_name='Дата')
     room = models.ForeignKey('Rooms', on_delete=models.DO_NOTHING, verbose_name='Комната')
     name = models.CharField(max_length=50, verbose_name="Имя")
-    phone_number = models.CharField(max_length=15)
-    how_many_visitors = models.IntegerField()
+    phone_number = models.CharField(max_length=15, verbose_name='Номер телефона')
+    how_many_visitors = models.IntegerField(verbose_name='Количество посетителей')
     start_time = models.TimeField(verbose_name='Начало бронирования')
     end_time = models.TimeField(verbose_name='Конец бронирования')
     tags = models.ManyToManyField('Tags', blank=True, related_name='tags', verbose_name='Тэги')
