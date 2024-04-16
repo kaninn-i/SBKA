@@ -17,7 +17,7 @@ def date(request, date_slug):
     db_entry = Booking.objects.filter(date=date_slug).order_by('start_time')
 
     first_floor_rooms = ['Осень', 'Лето', 'Зима', 'Весна', 'Большой зал', 'Полосатая', 'Каминная', 'Кабинет']
-    second_floor_rooms = ['Мансардная', 'Бирюзовая', 'Бордовая']  # лист ожидания как комната??
+    second_floor_rooms = ['Мансардная', 'Бирюзовая', 'Бордовая', 'Лист ожидания']  # лист ожидания как комната??
 
     # rooms = Rooms.objects.all() - для будущих динамичных комнат
 
@@ -34,12 +34,8 @@ def add_booking(request):
     if request.method == 'POST':
         form = AddBookingForm(request.POST)
         if form.is_valid():
-            # print(form.cleaned_data)
-            try:
-                Booking.objects.create(**form.cleaned_data)
-            except:
-                form.add_error(None, 'Ошибка добавления записи')
-    #            добавить куда-то суда ретерн на главную? или не делать? или попробовать сделать ретерн на страницу с этой записью?
+            form.save()
+            return redirect('index')
     else:
         form = AddBookingForm()
 
