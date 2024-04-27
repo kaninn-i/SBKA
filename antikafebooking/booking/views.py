@@ -39,7 +39,6 @@ def add_booking(request):
     else:
         form = AddBookingForm()
 
-    form = AddBookingForm()
     data = {
         'title': 'Добавление бронирования',
         'form': form
