@@ -8,18 +8,6 @@ body {
     font-size: 18px;
 }
 
-/*.floor1{*/
-/*    border: 2px solid black;*/
-/*    padding: 20px;*/
-/*    margin-bottom: 40px;*/
-/*}*/
-
-/*.floor2{*/
-/*    width: 1200px;*/
-/*    border: 2px solid black;*/
-/*    padding: 20px;*/
-/*}*/
-
 .rooms {
     display: flex;
     flex-wrap: wrap;
@@ -31,8 +19,3 @@ body {
     /*border: 2px solid black;*/
     margin-bottom: 20px;
 }
-
-/*.room p {*/
-/*    padding-left: 30px;*/
-/*    font-weight: bold;*/
-/*}*/

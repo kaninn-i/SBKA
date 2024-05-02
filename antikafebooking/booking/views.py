@@ -14,13 +14,9 @@ def index(request):
 
 
 def date(request, date_slug):
+
     db_entry = Booking.objects.filter(date=date_slug).order_by('start_time')
-
-    first_floor_rooms = ['Осень', 'Лето', 'Зима', 'Весна', 'Большой зал', 'Полосатая', 'Каминная', 'Кабинет']
-    second_floor_rooms = ['Мансардная', 'Бирюзовая', 'Бордовая', 'Лист ожидания']  # лист ожидания как комната??
-
     rooms = Rooms.objects.all()
-
     floors = []
 
     for room in rooms:
@@ -33,8 +29,6 @@ def date(request, date_slug):
         data = {
             'db_entry': db_entry,
             'date': db_entry[0].date,
-            'first_floor_rooms': first_floor_rooms,
-            'second_floor_rooms': second_floor_rooms,
             'rooms': rooms,
             'floors': floors,
         }

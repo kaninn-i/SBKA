@@ -7,8 +7,13 @@
     <title>{% block title %}{% endblock %}</title>
     {% load static %}
     <link type="text/css" href="{% static 'booking/css/main.css' %}" rel="stylesheet" />
+    {% block links %}{% endblock %}
+<!--    <script src="{% static 'booking/js/calendar.js' %}"></script>-->
 </head>
 <body>
+<header>
+    <a href="/dates/2024-04-27/">27.04.2024</a>
+</header>
 {% block content %}{% endblock %}
 </body>
 </html>
