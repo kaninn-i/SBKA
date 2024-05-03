@@ -2,6 +2,10 @@ body {
     font-family: Inter, sans-serif !important;
 }
 
+header {
+    height: 135px;
+    background-color: rgba(144, 204, 212, 1);
+}
 
 .main-container {
     margin: 0px 350px;
@@ -9,13 +13,14 @@ body {
     background-color: rgba(186, 219, 216, 0.75);
 }
 
-.floor-text{
+.floor-text {
     display: flex;
     justify-content: center;
     text-decoration: underline;
     padding-top: 20px;
     font-size: 30px;
 }
+
 .rooms {
     display: flex;
     flex-wrap: wrap;
@@ -63,7 +68,7 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease 0s;
@@ -99,4 +104,32 @@ body {
     overflow-y: auto;
     border: 1px solid #ddd;
     position: relative;
+}
+
+.form-label {
+    width: 120px;
+}
+
+@media (min-width: 1024px) {
+    .main-container {
+        margin: 0px 150px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .main-container {
+        margin: 0px 100px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .main-container {
+        margin: 0px 250px;
+    }
+}
+
+@media (min-width: 1900px) {
+    .main-container {
+        margin: 0px 350px;
+    }
 }
