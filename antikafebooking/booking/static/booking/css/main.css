@@ -8,9 +8,17 @@ header {
 }
 
 .main-container {
-    margin: 0px 350px;
+    margin: 0 350px;
     height: 100%;
     background-color: rgba(186, 219, 216, 0.75);
+}
+
+.container-no-booking {
+    height: 80vh;
+}
+
+.text-no-booking {
+    text-align: center;
 }
 
 .floor-text {
@@ -62,40 +70,6 @@ header {
     margin: 0;
 }
 
-.popup {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease 0s;
-}
-
-.popup_area {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.popup:target {
-    visibility: visible;
-    opacity: 1;
-}
-
-.popup_close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    text-decoration: none;
-    color: black;
-}
-
 .container-form {
     background: #ffffff;
     padding: 15px;
@@ -112,24 +86,24 @@ header {
 
 @media (min-width: 1024px) {
     .main-container {
-        margin: 0px 150px;
+        margin: 0 150px;
     }
 }
 
 @media (min-width: 1440px) {
     .main-container {
-        margin: 0px 100px;
+        margin: 0 100px;
     }
 }
 
 @media (min-width: 1600px) {
     .main-container {
-        margin: 0px 250px;
+        margin: 0 250px;
     }
 }
 
 @media (min-width: 1900px) {
     .main-container {
-        margin: 0px 350px;
+        margin: 0 350px;
     }
 }

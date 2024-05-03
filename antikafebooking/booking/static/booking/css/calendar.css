@@ -52,11 +52,15 @@
 
 .date-picker.selected {
     font-weight: bold;
-    outline: 1px dashed #00BCD4;
+    outline: 2px dashed #00BCD4;
 }
 
-.date-picker.selected span {
-    border-bottom: 2px solid currentColor;
+/*.date-picker.selected span {*/
+/*    border-bottom: 2px solid currentColor;*/
+/*}*/
+
+.date-picker span a {
+    color: #00BCD4;
 }
 
 

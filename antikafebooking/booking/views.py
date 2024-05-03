@@ -4,26 +4,15 @@ from django.shortcuts import render, redirect
 from booking.forms import AddBookingForm
 from booking.models import Booking, Rooms
 
+import datetime
+
 
 # Create your views here.
 
 
 def index(request):
-
-    if request.method == 'POST':
-        form = AddBookingForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-    else:
-        form = AddBookingForm()
-
-    data = {
-        'title': 'Главная страница',
-        'form': form
-        }
-
-    return render(request, 'booking/index.html', context=data)
+    date_today = datetime.date.today()
+    return redirect(f'/dates/{date_today}')
 
 
 def date(request, date_slug):
@@ -48,6 +37,10 @@ def date(request, date_slug):
 
 
     if db_entry:
+        print(db_entry[0].date)
+        print(type(db_entry[0].date))
+        print(date_slug)
+        print(type(date_slug))
         data = {
             'db_entry': db_entry,
             'date': db_entry[0].date,
@@ -57,21 +50,7 @@ def date(request, date_slug):
         }
         return render(request, 'booking/date.html', context=data)
     else:
-        return HttpResponse('Бронирований на данную дату нет')
-
-
-def add_booking(request):
-    if request.method == 'POST':
-        form = AddBookingForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('index')
-    else:
-        form = AddBookingForm()
-
-    data = {
-        'title': 'Добавление бронирования',
-        'form': form
-    }
-
-    return render(request, 'booking/add_booking.html', context=data)
+        data = {
+            'date': datetime.datetime.strptime(date_slug, '%Y-%m-%d'),
+        }
+        return render(request, 'booking/no_bookings.html', context=data)

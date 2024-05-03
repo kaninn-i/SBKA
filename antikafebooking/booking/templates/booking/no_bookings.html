@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Брони на {{ date|date:"d.m.Y" }}{% endblock %}
+
+{% block content %}
+
+<div class="main-container container-no-booking">
+    <p class="floor-text text-no-booking">
+        Бронирования на выбранную дату отсутствуют. <br>
+        Выберите другую дату или добавьте
+        новое бронирование для этой даты.
+    </p>
+</div>
+
+{% endblock %}
