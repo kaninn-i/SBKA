@@ -11,30 +11,36 @@
 <div class="main-container">
     {% for floor in floors %}
         <div class="floor">
-            <h2 class="floor-text">Этаж {{ floor }}</h2>
+            <p class="floor-text">Этаж {{ floor }}</p>
 
             <div class="rooms">
                 {% for room in rooms %}
                     {% if room.floor == floor %}
                         <div class="room">
-                            <h3 class="room-description">{{ room.room_name }} ({{ room.description }})</h3>
-                            {% for obj in db_entry %}
-                                {% if obj.room.room_name == room.room_name %}
-                                    <p>{{ obj.start_time|time:"H:i" }} - {{ obj.end_time|time:"H:i" }}</p>
-                                    <p>{{ obj.name }}, {{ obj.phone_number }}</p>
-                                    <p>Посетителей: <b>{{ obj.how_many_visitors }}</b></p>
-                                    {% with obj.tags.all as tags %}
-                                        {% if tags %}
-                                        <p>
-                                            <b>Теги:</b>
-                                            {% for t in tags %}
-                                            {{ t.tag }}
-                                            {% endfor %}
-                                        </p>
-                                        {% endif %}
-                                    {% endwith %}
-                                {% endif %}
-                            {% endfor %}
+                            <p class="room-description">{{ room.room_name }} ({{ room.description }})</p>
+                            <div class="room-bookings">
+                                {% for obj in db_entry %}
+                                    {% if obj.room.room_name == room.room_name %}
+                                        <div class="room-booking">
+                                            <p class="booking-time">{{ obj.start_time|time:"H:i" }} - {{ obj.end_time|time:"H:i" }}</p>
+                                            <div class="booking-info">
+                                                <p>{{ obj.name }}, {{ obj.phone_number }}</p>
+                                                <p>Посетителей: <b>{{ obj.how_many_visitors }}</b></p>
+                                                {% with obj.tags.all as tags %}
+                                                    {% if tags %}
+                                                    <p>
+                                                        <b>Теги:</b>
+                                                        {% for t in tags %}
+                                                        {{ t.tag }}
+                                                        {% endfor %}
+                                                    </p>
+                                                    {% endif %}
+                                                {% endwith %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
                         </div>
                     {% endif %}
                 {% endfor %}
