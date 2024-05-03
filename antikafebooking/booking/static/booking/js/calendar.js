@@ -63,9 +63,9 @@ function showCalendar(month, year) {
     var firstDay = (new Date(year, month)).getDay();
 
     if (firstDay === 0) {
-        firstDay = 6
+        firstDay = 6;
     } else {
-        firstDay = firstDay - 1
+        firstDay -= 1;
     }
 
     tbl = document.getElementById("calendar-body");
@@ -130,7 +130,7 @@ function links() {
         if (day.length === 1) {
             day = "0" + day;
         }
-        element.innerHTML = '<a href="https://example.com/dates/' + year + '-' + month + '-' + day + '">' + element.textContent + '</a> '
+        element.innerHTML = '<a href="/dates/' + year + '-' + month + '-' + day + '">' + element.textContent + '</a> '
     })
 }
 

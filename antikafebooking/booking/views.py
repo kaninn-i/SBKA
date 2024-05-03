@@ -9,7 +9,20 @@ from booking.models import Booking, Rooms
 
 
 def index(request):
-    data = {'title': 'Главная страница'}
+
+    if request.method == 'POST':
+        form = AddBookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = AddBookingForm()
+
+    data = {
+        'title': 'Главная страница',
+        'form': form
+        }
+
     return render(request, 'booking/index.html', context=data)
 
 
@@ -25,12 +38,22 @@ def date(request, date_slug):
         else:
             pass
 
+    if request.method == 'POST':
+        form = AddBookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/.')
+    else:
+        form = AddBookingForm()
+
+
     if db_entry:
         data = {
             'db_entry': db_entry,
             'date': db_entry[0].date,
             'rooms': rooms,
             'floors': floors,
+            'form': form,
         }
         return render(request, 'booking/date.html', context=data)
     else:
