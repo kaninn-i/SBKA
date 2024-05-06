@@ -2,6 +2,10 @@ from django import forms
 from .models import Rooms, Booking
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
 class AddBookingForm(forms.ModelForm):
     room = forms.ModelChoiceField(queryset=Rooms.objects.all(), label='Комната', empty_label='Комната не выбрана')
 

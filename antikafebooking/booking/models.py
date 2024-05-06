@@ -38,7 +38,7 @@ class Rooms(models.Model):
 
     room_name = models.CharField(max_length=100, db_index=True, verbose_name='Название комнаты')
     description = models.CharField(max_length=255, db_index=True, blank=True, verbose_name='Описание комнаты')
-    floor = models.IntegerField(max_length=2, verbose_name='Этаж', blank=True, null=True)
+    floor = models.IntegerField(verbose_name='Этаж', blank=True, null=True)
 
     def __str__(self):
         return self.room_name

@@ -10,14 +10,29 @@ import datetime
 
 # Create your views here.
 
-class EditBooking(UpdateView):
-    model = Booking
-    template_name = 'booking/edit_booking.html'
-
 
 def index(request):
     date_today = datetime.date.today()
     return redirect(f'/dates/{date_today}')
+
+
+def edit_booking(request, pk):
+    if request.method == 'GET':
+        if pk == 0:
+            form = AddBookingForm()
+        else:
+            book = Booking.objects.get(pk=pk)
+            form = AddBookingForm(instance=book)
+        return render(request, 'booking/edit_booking.html', {'form_ed': form})
+    else:
+        if pk == 0:
+            form = AddBookingForm(request.POST)
+        else:
+            book = Booking.objects.get(pk=pk)
+            form = AddBookingForm(request.POST, instance=book)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
 
 
 def date(request, date_slug):
@@ -25,7 +40,6 @@ def date(request, date_slug):
     db_entry = Booking.objects.filter(date=date_slug).order_by('start_time')
     rooms = Rooms.objects.all()
     floors = []
-    ready_forms = []
 
     if request.method == 'POST':
         form = AddBookingForm(request.POST)
