@@ -12,4 +12,5 @@ class AddBookingForm(forms.ModelForm):
             'date': forms.DateInput(attrs={'type': 'date'}),
             'start_time': forms.TimeInput(attrs={'type': 'time'}),
             'end_time': forms.TimeInput(attrs={'type': 'time'}),
+            'tags': forms.CheckboxSelectMultiple(),
         }
