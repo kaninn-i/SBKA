@@ -27,7 +27,7 @@ def edit_booking(request, pk):
             form = AddBookingForm(instance=book, initial={'date': date_str})
 
             # form = AddBookingForm(instance=book)
-        return render(request, 'booking/edit_booking.html', {'form_ed': form})
+        return render(request, 'booking/edit_booking.html', {'form_ed': form, 'pk': pk})
     else:
         if pk == 0:
             form = AddBookingForm(request.POST)
@@ -38,6 +38,12 @@ def edit_booking(request, pk):
             form.save()
             date_redirect = form.cleaned_data['date']
         return redirect(f'/dates/{date_redirect}')
+
+
+def delete_booking(request, pk):
+    book = Booking.objects.get(pk=pk)
+    book.delete()
+    return redirect(f'/dates/{book.date}')
 
 
 def date(request, date_slug):
