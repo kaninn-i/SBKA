@@ -18,26 +18,33 @@ def index(request):
 
 def edit_booking(request, pk):
     if request.method == 'GET':
+        form = AddBookingForm()
         if pk == 0:
-            form = AddBookingForm()
+            form_ed = AddBookingForm()
         else:
             book = Booking.objects.get(pk=pk)
-
             date_str = book.date.strftime('%Y-%m-%d')
-            form = AddBookingForm(instance=book, initial={'date': date_str})
-
-            # form = AddBookingForm(instance=book)
-        return render(request, 'booking/edit_booking.html', {'form_ed': form, 'pk': pk})
-    else:
-        if pk == 0:
+            form_ed = AddBookingForm(instance=book, initial={'date': date_str})
+        return render(request, 'booking/edit_booking.html', {'form_ed': form_ed, 'pk': pk, 'form': form})
+    elif request.method == 'POST':
+        if 'edit_form_submit' in request.POST:
+            form_ed = AddBookingForm(request.POST)
+            if form_ed.is_valid():
+                if pk == 0:
+                    form_ed.save()
+                else:
+                    book = Booking.objects.get(pk=pk)
+                    form_ed = AddBookingForm(request.POST, instance=book)
+                    form_ed.save()
+                    date_redirect = form_ed.cleaned_data['date']
+                    return redirect(f'/dates/{date_redirect}')
+        elif 'save_form_submit' in request.POST:
             form = AddBookingForm(request.POST)
-        else:
-            book = Booking.objects.get(pk=pk)
-            form = AddBookingForm(request.POST, instance=book)
-        if form.is_valid():
-            form.save()
+            if form.is_valid():
+                form.save()
             date_redirect = form.cleaned_data['date']
-        return redirect(f'/dates/{date_redirect}')
+            return redirect(f'/dates/{date_redirect}')
+        return redirect('/')
 
 
 def delete_booking(request, pk):

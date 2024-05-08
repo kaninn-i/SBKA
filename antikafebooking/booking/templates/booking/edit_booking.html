@@ -16,7 +16,7 @@
           <p><label class="form-label" for="{{ f_ed.id_for_label }}">{{ f_ed.label }}</label>{{ f_ed }}</p>
           <div class="form-error">{{ f_ed.errors }}</div>
           {% endfor %}
-          <button type="submit" class="btn btn-success">Сохранить изменения</button>
+          <button type="submit" class="btn btn-success" name="edit_form_submit">Сохранить изменения</button>
         </form>
         <form action="{% url 'delete_booking' pk %}" method="post">
           {% csrf_token %}
