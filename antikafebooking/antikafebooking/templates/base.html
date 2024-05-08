@@ -21,13 +21,21 @@
 <body>
   <header>
     <!-- Кнопки -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#calendarModal">
+  <div class="header-wrapper">
+      <button type="button" class="btn btn-primary button-head" data-bs-toggle="modal" data-bs-target="#calendarModal">
         Выбрать дату
       </button>
-      
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+
+      <div class="image-wrapper">
+        <a href="">
+          <img src="{% static 'booking/images/Ellipse 12.png' %}" width="105" height="105" alt="Картинка" />
+        </a>
+      </div>
+
+      <button type="button" class="btn btn-primary button-head" data-bs-toggle="modal" data-bs-target="#formModal">
         Добавить запись
       </button>
+  </div>
     <!-- Календарь бутстрап -->
     <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="calendarModalLabel" aria-hidden="true">
       <div class="modal-dialog">
