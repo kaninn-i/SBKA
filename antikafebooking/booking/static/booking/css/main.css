@@ -107,35 +107,22 @@ header {
         margin: 0 350px;
     }
 }
+
 .header-wrapper {
-display: flex;
+    display: flex;
     justify-content: space-around;
-    align-content: center;
     align-items: center;
     height: 100px;
+    position: relative;
 }
 
 .button-head {
-    appearance: auto;
-    border: 0;
-    border-radius: 30px;
-    background: #ffffff;
-    color: #000000;
-    padding: 8px 16px;
-    font-size: 30px;
-}
-.button-head:hover {
-  background: #ffffff;
-  color:#000000;
-}
-
-.button:active {
-    background: #000000;
+    width: 267px;
+    height: 60px;
+    border-radius: 20px;
+    font-size: 28px;
 }
 
 .image-wrapper {
-display: flex;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
-    height: 50px;
+    position: absolute;
+}
