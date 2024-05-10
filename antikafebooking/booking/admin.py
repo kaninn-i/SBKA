@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import Booking, Tags, Rooms
 
+admin.site.site_header = "Панель администрирования"
+admin.site.index_title = "Бронирования в антикафе"
+
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):

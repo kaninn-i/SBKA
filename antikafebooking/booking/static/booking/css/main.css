@@ -126,3 +126,10 @@ header {
 .image-wrapper {
     position: absolute;
 }
+
+.button-edit {
+    width: 400px;
+    height: 500px;
+    border-radius: 20px;
+    font-size: 10px;
+}
