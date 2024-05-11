@@ -52,11 +52,27 @@ header {
     margin-bottom: 26px;
 }
 
+.room-head {
+    display: flex;
+    height: 35px;
+    width: 260px;
+    border-radius: 10px;
+    background: rgba(189, 237, 244, 1);
+    margin-bottom: 10px;
+    margin-top: 10px;
+    justify-content: center;
+    position: relative;
+    border: #888888 solid 1px;
+
+}
+
 .room-description {
     display: flex;
     justify-content: center;
     font-size: 18px;
-
+    position: absolute;
+    top: 4px;
+    font-weight: 500;
 }
 
 .room-bookings {
@@ -75,14 +91,24 @@ header {
     border-radius: 15px;
     margin-bottom: 10px;
     position: relative;
+    border: #888888 solid 1px;
 }
 
 .booking-info p {
     margin: 0;
-
 }
 
 .container-form {
+    background: #ffffff;
+    padding: 15px;
+    max-width: 475px;
+    margin: 0 auto;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+.container-form-edit {
     background: #ffffff;
     padding: 15px;
     max-width: 475px;
@@ -140,71 +166,18 @@ header {
 }
 
 .button-edit {
-    width: 25px;
-    height: 25px;
-    border-radius: 20px;
-    font-size: 10px;
-    background-image: url("/static/booking/images/pen.png");
-    background-size: cover;
     position: absolute;
-    right: 15px;
+        right: 8px;
+        top: 5px;
 }
 
-.room-head {
-    height: 25px;
-    width: 260px;
-    border-radius: 30px;
-    background:rgba(160, 200, 270, 1);
-    margin-bottom: 10px;
-    margin-top: 5px;
-
+#img-edit {
+    width: 25px;
 }
+
 .time-header {
     font-size: 17px;
     text-align: center;
     padding-left: 5px;
     margin-top: 5px;
-}
-.button-window {
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    font-size: 12px;
-    position: absolute;
-    left: 200px;
-    bottom: 20px;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    white-space: nowrap;
-
-}
-.saved {
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    font-size: 12px;
-    position: absolute;
-    left: 230px;
-    bottom: 0px;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    white-space: nowrap;
-    margin-bottom: 10px;
-
-}
-.deleter {
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    font-size: 12px;
-    position: absolute;
-    left: 390px;
-    bottom: 0px;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    white-space: nowrap;
-    margin-bottom: 10px;
 }

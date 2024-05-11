@@ -24,15 +24,13 @@
 
                     <div class="room-booking">
                         <!-- РЕДАКТИРОВАНИЕ ЗАПИСИ -->
-                            <a href="/bookings/{{obj.pk}}/edit">
-                                <button type="button" class="btn btn-light button-edit" data-bs-toggle="modal"
-                                    data-bs-target="#editModal">
-
-                                </button>
+                            <a class="button-edit" href="/bookings/{{obj.pk}}/edit">
+                                {% load static %}
+                                <img id="img-edit"  src="{% static 'booking/images/pen.svg' %}" alt="">
                             </a>
                             <!-- конец редактирования записи -->
                         <div class="time-header">
-                        <p class="booking-time">{{ obj.start_time|time:"H:i" }} - {{ obj.end_time|time:"H:i" }}</p>
+                            <p class="booking-time">{{ obj.start_time|time:"H:i" }} - {{ obj.end_time|time:"H:i" }}</p>
                         </div>
                         <div class="booking-info">
                             <p><b>{{ obj.name }}, {{ obj.phone_number }}</b></p>

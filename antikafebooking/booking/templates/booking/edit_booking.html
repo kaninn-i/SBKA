@@ -5,10 +5,7 @@
 {% block content %}
 
 <div class="main-container">
-
-  <div class="modal-body">
-    <div class="wrapper">
-      <div class="container-form">
+      <div class="container-form-edit">
         <form id="form" method="post">
           {% csrf_token %}
           <div class="form-error">{{ form_ed.non_field_errors }}</div>
@@ -16,20 +13,14 @@
           <p><label class="form-label" for="{{ f_ed.id_for_label }}">{{ f_ed.label }}</label>{{ f_ed }}</p>
           <div class="form-error">{{ f_ed.errors }}</div>
           {% endfor %}
-          <div class="saved">
-          <button type="submit" class="btn btn-success" name="edit_form_submit">Сохранить изменения</button>
-          </div>
-        </form>
-        <form action="{% url 'delete_booking' pk %}" method="post">
-          {% csrf_token %}
-          <div class="deleter">
-          <button type="submit" class="btn btn-danger">
-            Удалить
-          </button>
+          <div class="form-edit-btns">
+            <button type="submit" class="btn btn-success" name="edit_form_submit">Сохранить изменения</button>
+            <form action="{% url 'delete_booking' pk %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Удалить</button>
+            </form>
           </div>
         </form>
       </div>
-    </div>
   </div>
-</div>
 {% endblock %}
