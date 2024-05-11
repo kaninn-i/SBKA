@@ -14,16 +14,28 @@
             {% if room.floor == floor %}
 
             <div class="room">
-                <p class="room-description">{{ room.room_name }} ({{ room.description }})</p>
-
+                <div class="room-head">
+                    <p class="room-description">{{ room.room_name }} ({{ room.description }})</p>
+                </div>
                 <div class="room-bookings">
                     {% for obj in db_entry %}
                     {% if obj.room.room_name == room.room_name %}
 
+
                     <div class="room-booking">
+                        <!-- РЕДАКТИРОВАНИЕ ЗАПИСИ -->
+                            <a href="/bookings/{{obj.pk}}/edit">
+                                <button type="button" class="btn btn-light button-edit" data-bs-toggle="modal"
+                                    data-bs-target="#editModal">
+
+                                </button>
+                            </a>
+                            <!-- конец редактирования записи -->
+                        <div class="time-header">
                         <p class="booking-time">{{ obj.start_time|time:"H:i" }} - {{ obj.end_time|time:"H:i" }}</p>
+                        </div>
                         <div class="booking-info">
-                            <p>{{ obj.name }}, {{ obj.phone_number }}</p>
+                            <p><b>{{ obj.name }}, {{ obj.phone_number }}</b></p>
                             <p>Посетителей: <b>{{ obj.how_many_visitors }}</b></p>
 
                             {% with obj.tags.all as tags %}
@@ -36,14 +48,7 @@
                             </p>
                             {% endif %}
                             {% endwith %}
-                            <!-- РЕДАКТИРОВАНИЕ ЗАПИСИ -->
-                            <a href="/bookings/{{obj.pk}}/edit">
-                                <button type="button" class="btn btn-primary button-edit" data-bs-toggle="modal"
-                                    data-bs-target="#editModal">
-                                    Редактировать
-                                </button>
-                            </a>
-                            <!-- конец редактирования записи -->
+
                         </div>
                     </div>
 
