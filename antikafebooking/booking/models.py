@@ -11,7 +11,7 @@ class Booking(models.Model):
     phone_number = models.CharField(max_length=15, verbose_name='Номер телефона')
     how_many_visitors = models.IntegerField(verbose_name='Количество посетителей')
     start_time = models.TimeField(verbose_name='Начало бронирования')
-    end_time = models.TimeField(verbose_name='Конец бронирования')
+    end_time = models.TimeField(verbose_name='Окончание бронирования')
     tags = models.ManyToManyField('Tags', blank=True, related_name='tags', verbose_name='Тэги')
 
     def __str__(self):

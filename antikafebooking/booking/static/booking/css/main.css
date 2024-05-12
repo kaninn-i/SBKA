@@ -84,7 +84,7 @@ header {
 .room-booking {
     display: flex;
     width: 260px;
-    align-content: center;
+    /*align-content: center;*/
     flex-wrap: wrap;
     flex-direction: column;
     background-color: white;
@@ -92,6 +92,12 @@ header {
     margin-bottom: 10px;
     position: relative;
     border: #888888 solid 1px;
+}
+
+.booking-info {
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .booking-info p {
@@ -111,15 +117,20 @@ header {
 .container-form-edit {
     background: #ffffff;
     padding: 15px;
-    max-width: 475px;
+    max-width: 750px;
     margin: 0 auto;
     overflow-y: auto;
     border: 1px solid #ddd;
     position: relative;
+    border-radius: 20px;
+}
+
+.container-form-edit h3 {
+    text-align: center;
 }
 
 .form-label {
-    width: 120px;
+    /*width: 120px;*/
 }
 
 @media (min-width: 1024px) {
@@ -131,6 +142,7 @@ header {
 @media (min-width: 1440px) {
     .main-container {
         margin: 0 100px;
+        padding: 50px;
     }
 }
 
@@ -175,9 +187,27 @@ header {
     width: 25px;
 }
 
-.time-header {
-    font-size: 17px;
+.booking-time {
+    font-size: 20px;
     text-align: center;
-    padding-left: 5px;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
+
+#id_tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+#id_tags div {
+    margin-right: 10px;
+
+}
+
+#form p:nth-child(17) {
+    margin: 0;
+}
+
+/*.input-group p {*/
+/*    margin-right: 10px;*/
+/*}*/
