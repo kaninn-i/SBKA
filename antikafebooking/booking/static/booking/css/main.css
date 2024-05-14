@@ -15,6 +15,7 @@ header {
 
 .main-container {
     margin: 0 350px;
+    padding: 30px;
     height: 100%;
     background-color: rgba(186, 219, 216, 0.75);
 }
@@ -24,6 +25,10 @@ header {
 }
 
 .text-no-booking {
+    text-align: center;
+}
+
+.date-text {
     text-align: center;
 }
 
@@ -142,7 +147,6 @@ header {
 @media (min-width: 1440px) {
     .main-container {
         margin: 0 100px;
-        padding: 50px;
     }
 }
 
@@ -207,7 +211,3 @@ header {
 #form p:nth-child(17) {
     margin: 0;
 }
-
-/*.input-group p {*/
-/*    margin-right: 10px;*/
-/*}*/

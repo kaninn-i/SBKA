@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Брони на {{ date|date:"d.m.Y" }}{% endblock %}
+{% block title %}Бронирования на {{ date|date:"d.m.Y" }}{% endblock %}
 
 {% block content %}
 
 <div class="main-container">
+<h2 class="date-text">Бронирования на {{ date|date:"d.m.Y" }}</h2>
     {% for floor in floors %}
     <div class="floor">
         <p class="floor-text">Этаж {{ floor }}</p>
