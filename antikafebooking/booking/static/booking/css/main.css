@@ -36,7 +36,6 @@ header {
     display: flex;
     justify-content: center;
     text-decoration: underline;
-    padding-top: 20px;
     font-size: 30px;
 }
 
@@ -101,8 +100,10 @@ header {
 
 .booking-info {
     font-size: 18px;
-    margin-bottom: 10px;
-    margin-left: 20px;
+    /*margin-bottom: 10px;*/
+    /*margin-left: 20px;*/
+    /*padding-right: 10px;*/
+    padding: 0 10px 10px 20px
 }
 
 .booking-info p {

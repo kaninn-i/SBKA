@@ -16,10 +16,9 @@
           {% endfor %}
           <div class="form-edit-btns">
             <button type="submit" class="btn btn-success" name="edit_form_submit">Сохранить изменения</button>
-            <form action="{% url 'delete_booking' pk %}" method="post">
-              {% csrf_token %}
-              <button type="submit" class="btn btn-danger">Удалить</button>
-            </form>
+            <a href="{% url 'delete_booking' pk %}">
+                <button type="button" class="btn btn-danger">Удалить</button>
+            </a>
           </div>
         </form>
       </div>

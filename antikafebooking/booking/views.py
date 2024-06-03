@@ -50,7 +50,8 @@ def edit_booking(request, pk):
                 form.save()
             date_redirect = form.cleaned_data['date']
             return redirect(f'/dates/{date_redirect}')
-        # return redirect('/')
+        else:
+            return redirect('/')
 
 
 def delete_booking(request, pk):
